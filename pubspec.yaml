@@ -1,0 +1,23 @@
+---
+name: todo_flutter
+description: A simple todo Flutter app with state management.
+publish_to: none
+version: 1.0.0+1
+environment:
+  sdk: '>=2.7.0 <3.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+flutter_icons:
+  android: launcher_icon
+  ios: true
+  image_path: images/launcher_icon/todo_icon.png
+dev_dependencies:
+  flutter_launcher_icons: ^0.9.0
+  flutter_test:
+    sdk: flutter
+flutter:
+  uses-material-design: true
+  assets:
+  - images/
