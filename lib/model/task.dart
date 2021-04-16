@@ -1,5 +1,9 @@
 class Task {
-  String text;
+  String title;
   bool isChecked;
-  Task({this.text, this.isChecked});
+  Task({this.title, this.isChecked = false});
+
+  void toggleDone() {
+    isChecked = !isChecked;
+  }
 }

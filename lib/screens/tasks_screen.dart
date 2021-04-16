@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_flutter/widgets/tasks_list_view.dart';
+import 'package:todo_flutter/screens/add_task_screen.dart';
 
 class TasksScreen extends StatelessWidget {
   @override
@@ -67,7 +68,11 @@ class TasksScreen extends StatelessWidget {
           size: 30.0,
         ),
         onPressed: () {
-          null;
+          showModalBottomSheet(
+            context: context,
+            // isScrollControlled: true,
+            builder: (context) => AddTaskScreen(),
+          );
         },
       ),
     );
