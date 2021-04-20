@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:todo_flutter/model/task_data.dart';
 import 'package:todo_flutter/widgets/tasks_list_view.dart';
 import 'package:todo_flutter/screens/add_task_screen.dart';
-import 'package:todo_flutter/model/task.dart';
 import 'package:provider/provider.dart';
 
-class TasksScreen extends StatefulWidget {
-  @override
-  _TasksScreenState createState() => _TasksScreenState();
-}
-
-class _TasksScreenState extends State<TasksScreen> {
+class TasksScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +14,11 @@ class _TasksScreenState extends State<TasksScreen> {
         children: [
           Container(
             padding: EdgeInsets.only(
-                top: 60.0, left: 30.0, right: 30.0, bottom: 30.0),
+              top: 60.0,
+              left: 30.0,
+              right: 30.0,
+              bottom: 30.0,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -44,7 +43,7 @@ class _TasksScreenState extends State<TasksScreen> {
                   ),
                 ),
                 Text(
-                  '${context.watch<List<Task>>().length} tasks',
+                  '${context.watch<TaskData>().taskCount} tasks',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18.0,
@@ -78,9 +77,7 @@ class _TasksScreenState extends State<TasksScreen> {
           showModalBottomSheet(
             context: context,
             // isScrollControlled: true,
-            builder: (context) => AddTaskScreen((newTaskTitle) {
-              Provider.of<List<Task>>(context).add(Task(title: newTaskTitle));
-            }),
+            builder: (context) => AddTaskScreen(),
           );
         },
       ),
